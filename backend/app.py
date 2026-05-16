@@ -17,7 +17,7 @@ from routes.department_routes import department_bp
 app = Flask(__name__)
 app.secret_key = "anything"
 # CORS(app, supports_credentials=True, origins=["http://127.0.0.1:5500", "http://localhost:5500"])
-CORS(app, supports_credentials=True, origins=["https://mediqueue01.netlify.app/"])
+CORS(app, supports_credentials=True, origins=["https://mediqueue01.netlify.app"])
 
 app.register_blueprint(receptionists_bp, url_prefix="/api")
 app.register_blueprint(admin_bp, url_prefix="/api")
