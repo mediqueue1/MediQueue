@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function loadNowServing() {
     try {
-        const res = await fetch("http://127.0.0.1:5000/api/now_serving");
+        const res = await fetch("https://mediqueue-api-qsnu.onrender.com/api/now_serving");
         const result = await res.json();
 
         if (result.success && result.data.length > 0) {

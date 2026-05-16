@@ -66,13 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // 3. Determine the correct backend URL based on role
         let backendUrl = '';
         if (role === 'Doctor') {
-            backendUrl = 'http://127.0.0.1:5000/api/doctors/register'; 
+            backendUrl = 'https://mediqueue-api-qsnu.onrender.com/api/doctors/register'; 
         } else if (role === 'Patient') {
-            backendUrl = 'http://127.0.0.1:5000/api/patient/register'; 
+            backendUrl = 'https://mediqueue-api-qsnu.onrender.com/api/patient/register'; 
         } else if (role === 'Admin') {
-            backendUrl = 'http://127.0.0.1:5000/admin/register';
+            backendUrl = 'https://mediqueue-api-qsnu.onrender.com/admin/register';
         } else if (role === 'Receptionist') {
-            backendUrl = 'http://127.0.0.1:5000/receptionists/register';
+            backendUrl = 'https://mediqueue-api-qsnu.onrender.com/receptionists/register';
         }
 
         // 4. Send to Backend

@@ -242,7 +242,7 @@ function loadTable(data){
 /* Fetch Doctors */
 async function fetchDoctors() {
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/doctors");
+    const response = await fetch("https://mediqueue-api-qsnu.onrender.com/api/doctors");
     const data = await response.json();
 
     doctors = data.map(d => ({

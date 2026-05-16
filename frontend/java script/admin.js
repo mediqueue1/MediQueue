@@ -42,7 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // get no. of patients and doctors
 async function loadCounts() {
-  const res = await fetch("http://127.0.0.1:5000/api/admin/counts");
+//   const res = await fetch("http://127.0.0.1:5000/api/admin/counts");
+  const res = await fetch("https://mediqueue-api-qsnu.onrender.com/api/admin/counts");
   const data = await res.json();
 
   document.getElementById("doctorCount").innerText = data.total_doctors;

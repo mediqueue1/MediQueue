@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const res = await fetch(`http://127.0.0.1:5000/api/queue/next/${doctorId}`);
+            const res = await fetch(`https://mediqueue-api-qsnu.onrender.com/api/queue/next/${doctorId}`);
             const data = await res.json();
 
             if (!data.patient) {
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (confirm("Confirm: Consultation is finished?")) {
             try {
-                await fetch(`http://127.0.0.1:5000/api/queue/complete/${currentPatient.appointment_id}`, {
+                await fetch(`https://mediqueue-api-qsnu.onrender.com/api/queue/complete/${currentPatient.appointment_id}`, {
                     method: "PUT"
                 });
 

@@ -56,7 +56,7 @@ if (welcomeHeader) {
     // ============================
     async function updateAllQueueStatus(patientId) {
         try {
-            const response = await fetch(`http://127.0.0.1:5000/api/queue_status_all/${patientId}`);
+            const response = await fetch(`https://mediqueue-api-qsnu.onrender.com/api/queue_status_all/${patientId}`);
             const resData = await response.json();
 
             const container = document.getElementById("queueList");
@@ -119,7 +119,7 @@ if (welcomeHeader) {
     // ============================
     async function updateQueueStatus(patientId) {
         try {
-            const response = await fetch(`http://127.0.0.1:5000/api/queue_status/${patientId}`);
+            const response = await fetch(`https://mediqueue-api-qsnu.onrender.com/api/queue_status/${patientId}`);
             const resData = await response.json();
 
             if (resData.success) {
@@ -181,7 +181,7 @@ if (welcomeHeader) {
         }
 
         try {
-            const res = await fetch('http://127.0.0.1:5000/api/doctors');
+            const res = await fetch('https://mediqueue-api-qsnu.onrender.com/api/doctors');
             const doctors = await res.json();
 
             console.log("Doctors Data:", doctors);
@@ -304,7 +304,7 @@ if (welcomeHeader) {
             };
 
             try {
-                const response = await fetch('http://127.0.0.1:5000/api/book_appointment', {
+                const response = await fetch('https://mediqueue-api-qsnu.onrender.com/api/book_appointment', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(appointmentData)

@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Map roles to their specific backend login URLs
         let loginUrl = '';
         if (selectedRole === 'Doctor') {
-            loginUrl = 'http://127.0.0.1:5000/api/doctors/login';
+            loginUrl = 'https://mediqueue-api-qsnu.onrender.com/api/doctors/login';
         } else if (selectedRole === 'Admin') {
-            loginUrl = 'http://127.0.0.1:5000/api/admin/login';
+            loginUrl = 'https://mediqueue-api-qsnu.onrender.com/api/admin/login';
         } else if (selectedRole === 'Patient') {
-            loginUrl = 'http://127.0.0.1:5000/api/patient/login';
+            loginUrl = 'https://mediqueue-api-qsnu.onrender.com/api/patient/login';
         } else if (selectedRole === 'Receptionists') {
-            loginUrl = 'http://127.0.0.1:5000/api/receptionists/login';
+            loginUrl = 'https://mediqueue-api-qsnu.onrender.com/api/receptionists/login';
         }
 
         try {
