@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - Clinical Sanctuary</title>
+    <link rel="stylesheet" href="../css/patient.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand-header">
+                <h3 class="brand-title">MediQueue</h3>
+                <div class="brand-subtitle">
+                    <!-- <h3>MediQueue</h3> -->
+                    <p>OPD Management</p>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <!-- <a href="#" class="nav-item">
+                    <span class="icon">⊞</span> Dashboard
+                </a> -->
+                <a href="patient.html" class="nav-item" id="PatientBtn" >
+                    <span class="icon">🏥</span> Appointment
+                </a>
+                <a href="schedule.html" class="nav-item" id="ScheduleBtn">
+                    <span class="icon">👥</span> Schedule
+                </a>
+                <a href="medical.html" class="nav-item" id="MedicalBtn">
+                    <span class="icon">📅</span> Medical Record
+                </a>
+                 <a href="queue.html" class="nav-item" id="QueueBtn">
+                    <span class="icon">⏰</span> Queue
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="index.html" class="nav-item" id="HomeBtn">
+                    <span class="icon">🏠</span> Home
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <span class="icon">🚪</span> Logout
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="search-container">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search appointments or doctors...">
+                </div>
+                <div class="profile-actions">
+                    <button class="icon-btn">🔔</button>
+                </div>
+            </header>
+
+            <div class="welcome-section">
+                <div>
+                    <h1 class="welcome-text" id="welcomeName">Welcome back...</h1>
+                    <p class="welcome-subtext">Your health journey is our priority. Monitor your queue in real-time.</p>
+                </div>
+                <div class="date-card">
+                    <span class="date-label">TODAY DATE</span>
+                    <div class="date-value">
+                        <span class="calendar-icon">📅</span>
+                        <strong id="currentDateDisplay"></strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-layout bottom-grid">
+                <section class="booking-section">
+                    <h2 class="section-title">Book New Appointment</h2>
+                    
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label><span class="icon">👤</span> FULL NAME</label>
+                                <input type="text" id="bookingName" placeholder="Full Name(required)">
+                            </div>
+                            <div class="input-group">
+                                <label><span class="icon">📱</span> CONTACT</label>
+                                <input type="tel" id="bookingPhone" placeholder="Phone Number(required)">
+                            </div>
+                            <div class="input-group">
+                                <label><span class="icon">👤</span> GENDER</label>
+                                <select id="gender" 
+                                style="width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; background-color: #fff; box-sizing: border-box;">
+        
+                                  <option value="">Select Gender</option>
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                  <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label><span class="icon">👤</span> DOB</label>
+                                <input type="date" id="dob">
+                            </div>
+                        </div>
+
+                       <div class="input-group">
+    <label><span class="icon">🏥</span> SELECT DEPARTMENT</label>
+    <select id="departmentSelect" style="width:100%; padding:10px; border-radius:8px;">
+        <option value="">Select Department</option>
+    </select>
+</div>
+
+<div class="input-group">
+    <label><span class="icon">🩺</span> SELECT DOCTOR</label>
+    <select id="doctorSelect" style="width:100%; padding:10px; border-radius:8px;" disabled>
+        <option value="">Select Doctor</option>
+    </select>
+</div>
+
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label><span class="icon">🕒</span> TIME SLOT</label>
+                                <div class="time-slots">
+                                    <button type="button" class="slot-btn">09:00 AM</button>
+                                    <button type="button" class="slot-btn">11:30 AM</button>
+                                    <button type="button" class="slot-btn">02:15 PM</button>
+                                    <button type="button" class="slot-btn">04:45 PM</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Confirm Appointment ➔</button>
+                    </form>
+                </section>
+
+                <aside class="facility-section card">
+                    <h3>Facility Overview</h3>
+                    <p class="facility-sub">Operational hours and department contacts.</p>
+                    
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                <strong>MAIN CAMPUS</strong>
+                                <p>Integral University<br>Lucknow, 226026</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <div>
+                                <strong>EMERGENCY DESK</strong>
+                                <p>+91 954321678</p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <script src="../java script/patient.js"></script>
+</body>
+</html>

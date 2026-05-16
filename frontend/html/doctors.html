@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Dashboard - MediQueue</title>
+    <link rel="stylesheet" href="../css/doctor.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <h3 class="brand-name">MediQueue</h3>
+                <p class="brand-sub">OPD Management</p>
+            </div>
+            <nav class="nav-menu">
+                <a href="doctors.html" class="nav-link" id="DoctorsBtn" >
+                    <span class="icon">🏥</span> Dashboard
+                </a>
+                <a href="scheduled.html" class="nav-link" id="ScheduledBtn" >
+                    <span class="icon">📅</span> Schedule
+                </a>
+                 <a href="queued.html" class="nav-link" id="QueuedBtn" >
+                    <span class="icon">⏰</span> Queue
+                </a>
+                <a href="doctord.html" class="nav-link" id="DoctorBtn" >
+                    <span class="icon">🧑‍⚕️</span> Doctor
+                </a>
+              
+               </nav>
+            <div class="sidebar-bottom" >
+                <a href="index.html" class="nav-link">🏠 Home</a>
+                <a href="login.html" class="nav-link logout">🚪Logout</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="welcome">
+                     <!-- <h1 id="dashboardTitle">Doctor's Dashboard</h1> -->
+                     <h1 id="welcomeText">Welcome back, Doctor</>
+                </div>
+                <div class="header-actions">
+                    <!-- <span class="icon">🔔</span>
+                    <span class="icon">⚙️</span> -->
+                    <img src="/frontend/images/dr1.jpg" alt="Doctor Profile" class="prof-img" style="width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid #eee;">
+                </div>
+            </header>
+
+            <div class="content-grid">
+                <section class="consultation-area">
+                    <div class="consultation-card">
+                        <div class="card-header">
+                            <span class="status-badge">CURRENTLY CONSULTING</span>
+                        </div>
+                        
+                        <div class="patient-main">
+                            <div class="patient-info">
+                                <h2 id="patientName">No Patient</h2>
+                                    <p class="patient-meta" id="patientMeta">Waiting for next patient...</p>
+                            </div>
+                            <div class="quick-actions">
+                                <button class="btn-ghost">📄 View Patient History</button>
+                                <!-- <button class="btn-ghost">📋 Reports</button> -->
+                            </div>
+                        </div>
+                        <div class="footer-actions">
+                            <button id="completeBtn" class="btn-primary">✓ Mark as Completed</button>
+                            <button id="nextPatientBtn" class="btn-secondary">⏭️ Call Next Patient</button>
+                        </div>
+                    </div>
+
+                    <div class="next-up-section">
+                        <div class="section-top">
+                            <h3>Next Up</h3>
+                            <a href="queued.html">View All Queue</a>
+                        </div>
+                        <div class="next-cards">
+                            <div class="mini-card">
+                                <div class="token-num">15</div>
+                                <div><strong>Marcus Thorne</strong><p>Follow-up: Post Surgery</p></div>
+                            </div>
+                            <div class="mini-card">
+                                <div class="token-num">16</div>
+                                <div><strong>Sarah Jenkins</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="right-panel">
+                    <div class="panel-card stats-card">
+                        <h3>QUEUE HEALTH</h3>
+                        <div class="stats-row">
+                            <div class="stat">
+                                <strong>12 min</strong>
+                                <span>Avg. Wait Time</span>
+                            </div>
+                            <div class="stat">
+                                <strong class="text-blue">85%</strong>
+                                <span>Efficiency</span>
+                            </div>
+                        </div>
+                        <div class="stat-bars">
+                            <div class="bar-container"><div class="bar blue" style="width: 70%;"></div></div>
+                            <div class="bar-labels">
+                                <span>14 Completed</span>
+                                <span>8 Pending</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-card schedule-card">
+                        <h3>Today's Schedule</h3>
+                        <ul class="timeline">
+                            <li class="active">
+                                <span class="time">09:00 AM</span>
+                                <div><strong>OPD Consultation</strong><p>09:00 AM - 01:00 PM</p></div>
+                            </li>
+                            <li>
+                                <span class="time">01:00 PM</span>
+                                <div><strong>Lunch Break</strong><p>01:00 PM - 02:00 PM</p></div>
+                            </li>
+                            <li>
+                                <span class="time">02:00 PM</span>
+                                <div><strong>IPD Ward Rounds</strong><p>02:00 PM - 04:30 PM</p></div>
+                            </li>
+                        </ul>
+                        <button class="btn-outline-full">Modify Schedule</button>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+    <script src="../java script/doctor.js"></script>
+</body>
+</html>

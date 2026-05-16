@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - MediQueue</title>
+    <link rel="stylesheet" href="../css/patient.css">
+    <link rel="stylesheet" href="../css/token.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+        <div class="brand-header">
+            <h3 class="brand-title">MediQueue</h3>
+            <div class="brand-subtitle">
+                <p>OPD Management</p>
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="patient.html" class="nav-item" id="PatientBtn">
+                <span class="icon">🏥</span> Appointment
+            </a>
+
+            <a href="schedule.html" class="nav-item" id="ScheduleBtn">
+                <span class="icon">👥</span> Schedule
+            </a>
+
+            <a href="medical.html" class="nav-item" id="MedicalBtn">
+                <span class="icon">📅</span> Medical Record
+            </a>
+
+            <a href="queue.html" class="nav-item" id="QueueBtn">
+                <span class="icon">⏰</span> Queue
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="index.html" class="nav-item" id="HomeBtn">
+                <span class="icon">🏠</span> Home
+            </a>
+
+            <a href="#" class="nav-item" id="logoutBtn">
+                <span class="icon">🚪</span> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <div class="overlay">
+
+        <!-- Header -->
+        <div class="header">
+            <h1>MediQueue</h1>
+            <div class="subtitle">Outpatient Queue & Token Management System</div>
+        </div>
+
+        <!-- Token Section -->
+        <div class="token-section">
+            <h2>Your Token Number</h2>
+            <div id="queueList"></div>
+        </div>
+
+        <!-- Cards -->
+        <div class="cards">
+
+            <div class="card">
+                <h3>Current Queue</h3>
+                <p id="queue">5 patients ahead of you</p>
+            </div>
+
+            <div class="card" id="waitingCard">
+                <h3>Please Wait</h3>
+                <p id="waitingText">Your token will be called soon</p>
+            </div>
+
+            <div class="card">
+                <h3>Notifications</h3>
+                <p>Please listen for your token number</p>
+            </div>
+
+        </div>
+
+        <!-- Button -->
+        <div class="btn">
+            <button onclick="printToken()">Print Token</button>
+        </div>
+
+    </div>
+
+    <!-- ================= RIGHT WIDGET ================= -->
+    <aside class="widgets-column">
+
+        <div class="widget wifi-widget">
+            <div class="wifi-header">
+                <span class="wifi-label">WI-FI ACCESS</span>
+                <span class="wifi-icon">📶</span>
+            </div>
+
+            <h3 class="wifi-name">Hospital_Guest</h3>
+
+            <div class="wifi-password">
+                <span>SANC-HEAL-2023</span>
+                <button class="copy-btn">📋</button>
+            </div>
+        </div>
+
+    </aside>
+
+</div>
+
+<script src="../java script/patient.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediQueue- Login</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body
+
+style="background-image: url(/frontend/images/background.jpg);
+ background-size:cover ;
+background-repeat:no-repeat;
+background-position:center;">
+
+    <div class="login-container">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>MediQueue</h1>
+                <p>Precision care management starts here. Streamlining outpatient flow with architectural clarity.</p>
+            </div>
+            <div class="info-card">
+                <span class="icon">📅</span>
+                <div class="info-text">
+                    <strong>Real-time OPD Queue</strong>
+                    <span>Reducing wait times by 40%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="form-wrapper">
+                <h2>Welcome Back</h2>
+                <p class="subtitle">Please sign in to access your dashboard.</p>
+
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label>ACCESS ROLE</label>
+                        <select id="role">
+                            <option>Admin</option>
+                            <option>Doctor</option>
+                            <option>Patient</option>
+                            <option>Receptionists</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>USERNAME</label>
+                        <div class="input-with-icon">
+                            <span class="field-icon">👤</span>
+                            <input type="text" id="identifier" placeholder="Enter your Username" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-with-icon">
+                            <span class="field-icon">🔒</span>
+                            <input type="password" id="password" placeholder="••••••••" required>
+                            <span class="toggle-password" id="togglePass">👁️</span>
+                        </div>
+                        <div class="label-row">
+                            <label>PASSWORD</label>
+                            <a href="#" class="forgot-link">Forgot Password?</a>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="login-btn">Login to Portal</button>
+                </form>
+
+                <p class="register-redirect">New User? <a href="register.html">Register Now</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="../java script/login.js"></script>
+</body>
+</html>

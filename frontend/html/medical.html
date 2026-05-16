@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - MediQueue</title>
+    <link rel="stylesheet" href="../css/patient.css">
+    <link rel="stylesheet" href="../css/token.css">
+
+ <style>
+    .records-box {
+      background: #ffffff;
+      border-radius: 30px;
+      padding: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      width: 100%;
+      min-height: 300px;
+    }
+
+    .records-box h2 {
+      color: #0f5fca;
+      font-size: 32px;
+      margin-bottom: 25px;
+    }
+
+    .table-container {
+      width: 100%;
+      border: 1px solid #e4e8f0;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      
+    }
+
+    thead {
+      background: #f3f6fb;
+    }
+
+    th {
+      padding: 24px 20px;
+      text-align: left;
+      color: #333;
+      font-size: 20px;
+      font-weight: 600;
+      border-bottom: 1px solid #e4e8f0;
+    }
+
+    td {
+      height: 85px;
+      border-bottom: 1px solid #edf0f5;
+    }
+ </style>   
+</head>
+<body>
+
+     <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand-header">
+                <h3 class="brand-title">MediQueue</h3>
+                <div class="brand-subtitle">
+                   <p>OPD Management</p>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <!-- <a href="#" class="nav-item">
+                    <span class="icon">⊞</span> Dashboard
+                </a> -->
+                <a href="patient.html" class="nav-item" id="PatientBtn">
+                    <span class="icon">🏥</span> Appointment
+                </a>
+                <a href="schedule.html" class="nav-item" id="ScheduleBtn">
+                    <span class="icon">👥</span> Schedule
+                </a>
+                <a href="medical.html" class="nav-item " id="MedicalBtn">
+                    <span class="icon">📅</span> Medical Record
+                </a>
+                 <a href="queue.html" class="nav-item" id="QueueBtn">
+                    <span class="icon">⏰</span> Queue
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="index.html" class="nav-item" id="HomeBtn">
+                    <span class="icon">🏠</span> Home
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <span class="icon">🚪</span> Logout
+                </a>
+            </div>
+        </aside>
+
+     <!-- <div class="grid-layout top-grid">
+                <section class="card queue-card">
+                    <div class="queue-status">
+                        <span class="status-dot"></span> LIVE QUEUE MONITORING
+                    </div>
+                    
+                    <div class="queue-content">
+                        <div class="queue-info">
+                            <h2 id="deptName">General Medicine — Wing A</h2>
+                            <p id="currentDoctor">Loading current status...</p>
+                            
+                            <div class="queue-stats">
+                                <div class="stat-box">
+                                    <span class="stat-label">Wait Time</span>
+                                    <strong class="stat-value" id="waitTime">~ -- min</strong>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-label">Tokens Ahead</span>
+                                    <strong class="stat-value" id="tokensAhead">--</strong>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="queue-circle-wrapper">
+                            <div class="progress-circle">
+                                <div class="circle-inner">
+                                    <span class="circle-label">YOUR TOKEN</span>
+                                    <strong class="circle-number" id="userToken">--</strong>
+                                </div>
+                            </div>
+                            <div class="serving-now">
+                                <span>Currently Serving</span>
+                                <strong id="servingToken">--</strong>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <aside class="widgets-column">
+                    <div class="widget assistance-widget">
+                        <h3>Need Assistance?</h3>
+                        <p>Our concierges are available 24/7 at the main lobby.</p>
+                        <button class="btn-glass">Emergency Help</button>
+                        <div class="bg-icon">⚕️</div>
+                    </div>
+                     -->
+
+                     <body>
+
+<div class="overlay">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>MediQueue</h1>
+    <div class="subtitle">Outpatient Queue & Token Management System</div>
+  </div>
+
+  <!-- Token Section -->
+  
+  <div class="records-box">
+            <h2>Patient Medical Records</h2>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Patient_id</th>
+                    <th>Doctor_id</th>
+                    <th>Diagnosis</th>
+                    <th>Prescription</th>
+                    <th>Visit Date</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+  <script src="../java script/patient.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MediQueue - Home</title>
+    <link rel="stylesheet" href="/frontend/chandan copy/style.css">
+
+    <style>
+        /* HERO TEXT */
+        .hero-text {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+/* SLIDER */
+.slider {
+    width: 100%;
+    max-width: 1000px;
+    height: 350px;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+/* SLIDES */
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 15s ease-in-out;
+}
+
+/* IMAGES */
+.slides img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* BUTTONS */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+        /* DOCTOR SECTION */
+        .doctor {
+            padding: 50px 20px;
+            text-align: center;
+            background: #f4f4f4;
+        }
+
+        .doctor h2 {
+            margin-bottom: 40px;
+        }
+
+        .doctor-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .doctor-card {
+            background: #ffffff;
+            padding: 25px 20px;
+            border-radius: 16px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .doctor-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid #eee;
+        }
+
+        .doctor-card h3 {
+            margin: 10px 0 5px;
+            font-size: 16px;
+        }
+
+        .doctor-card p {
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h3>MediQueue</h3>
+    <p>OPD Management</p>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="features.html">Why Choose Us</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<!-- HERO TEXT -->
+<div class="hero-text">
+    <h1>Best Hospital in Lucknow</h1>
+    <p>Providing world-class healthcare services</p>
+</div>
+
+<!-- ✅ SLIDER INSERTED HERE -->
+<div class="slider">
+    <div class="slides">
+        <img src="/frontend/images/Hospital 1.jpg">
+        <img src="/frontend/images/Hospital 2.jpg">
+        <img src="/frontend/images/Hospital 3.jpg">
+    </div>
+
+    <!-- <button class="prev" onclick="moveSlide(-1)">❮</button>
+    <button class="next" onclick="moveSlide(1)">❯</button> -->
+
+
+</div>
+
+<!-- DOCTOR SECTION -->
+<section class="doctor">
+    <h2>Our Doctors</h2>
+
+    <div class="doctor-container">
+
+        <div class="doctor-card">
+            <img src="/frontend/images/dr1.jpg">
+            <h3>Ahmad Khan</h3>
+            <p>Cardiologist</p>
+        </div>
+
+        <div class="doctor-card">
+            <img src="/frontend/images/dr2.jpg">
+            <h3>Ravi Singh</h3>
+            <p>Orthopedic</p>
+        </div>
+
+        <div class="doctor-card">
+            <img src="/frontend/images/dr3.jpg">
+            <h3>John Khan</h3>
+            <p>General Physician</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© MediQueue</p>
+</footer>
+<script src="../chandan copy/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Receptionist Dashboard</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  background: #f5f7fb;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  padding: 20px;
+  font-weight: bold;
+}
+
+.menu {
+  padding: 10px;
+}
+
+.menu a {
+  display: block;
+  padding: 12px;
+  margin: 5px 0;
+  text-decoration: none;
+  color: #333;
+  border-radius: 6px;
+}
+
+.menu a:hover {
+  background: #e6edff;
+}
+
+.menu .active {
+  background: #d6e4ff;
+  color: #1a73e8;
+}
+
+/* Bottom */
+/* Apply SAME style to both menu and bottom menu */
+.menu a,
+.bottom-menu a {
+  display: block;
+  padding: 12px;
+  margin: 5px 0;
+  text-decoration: none;
+  color: #333;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Hover */
+.menu a:hover,
+.bottom-menu a:hover {
+  background: #e6edff;
+  color: #1a73e8;
+}
+
+/* Active */
+.menu a.active,
+.bottom-menu a.active {
+  background: #d6e4ff;
+  color: #1a73e8;
+}
+/* Main */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.search {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn {
+  background: #1a73e8;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background: #eef2ff;
+  text-align: left;
+}
+
+.actions button {
+  padding: 5px 8px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view { background: #d1ecf1; }
+.edit { background: #fff3cd; }
+
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <div>
+    <div class="logo"><h3>MediQueue</h3>
+    <p>OPD Management</p>
+    </div>
+
+    <div class="menu">
+      <a href="admin.html">🏥Dashboard</a>
+      <a href="patienta.html">👦Patient</a>
+      <a href="doctora.html">🧑‍⚕️Doctor</a>
+      <a href="receptionistsa.html" class="active">👩‍⚕️Receptionist</a>
+      <a href="queuea.html">⏰Queue</a>
+    </div>
+  </div>
+
+  <div class="bottom-menu">
+    <a href="index.html">🏠Home</a>
+    <a href="login.html">🚪Logout</a>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+  <div class="topbar">
+    <input type="text" id="search" class="search" placeholder="Search receptionists...">
+    <a href="addreceptionist.html"><button class="btn">Add New Receptionist</button></a>
+  </div>
+
+  <div class="card">
+    <h3>All Receptionists</h3>
+
+    <table id="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Middle Name</th>
+          <th>Last Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Username</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+  </div>
+
+</div>
+
+<script>
+
+/* Backend Data Replace Here */
+let data = [];
+
+/* Load Table */
+function loadTable(arr){
+  const tbody = document.querySelector("#table tbody");
+  tbody.innerHTML = "";
+
+  arr.forEach(r=>{
+    tbody.innerHTML += `
+      <tr>
+        <td>${r.id}</td>
+        <td>${r.first}</td>
+        <td>${r.middle || "NULL"}</td>
+        <td>${r.last}</td>
+        <td>${r.phone}</td>
+        <td>${r.email}</td>
+        <td>${r.username || "NULL"}</td>
+        <td class="actions">
+          <button class="view">View</button>
+          <button class="edit">Edit</button>
+        </td>
+      </tr>
+    `;
+  });
+}
+
+loadTable(data);
+
+fetchReceptionists();
+
+async function fetchReceptionists(){
+  try {
+    const response = await fetch("http://127.0.0.1:5000/api/receptionists"); 
+    const result = await response.json();
+
+    // Map backend → frontend
+    data = result.map(r => ({
+      id: r.receptionist_id,
+      first: r.first_name,
+      middle: r.middle_name,
+      last: r.last_name,
+      phone: r.phone,
+      email: r.email,
+      username: r.username
+    }));
+
+    loadTable(data);
+
+  } catch (error) {
+    console.error("Error fetching receptionists:", error);
+  }
+}
+
+/* Search */
+document.getElementById("search").addEventListener("keyup", function(){
+  const val = this.value.toLowerCase();
+
+  const filtered = data.filter(r =>
+    r.first.toLowerCase().includes(val) ||
+    r.last.toLowerCase().includes(val) ||
+    r.phone.includes(val)
+  );
+
+  loadTable(filtered);
+});
+
+</script>
+
+</body>
+</html>

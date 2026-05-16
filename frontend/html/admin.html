@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MediQueue</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span ></span>
+                <div>
+                    <h2>MediQueue</h2>
+                    <p>OPD Management</p>
+                </div>
+            </div>
+            <nav class="menu">
+                <a href="admin.html" class="menu-item" id="AdminBtn" >
+                    <span class="icon">🏥</span> Dashboard
+                </a>
+                <a href="patienta.html" class="menu-item" id="PatientaBtn" >
+                    <span class="icon">👦</span> Patient
+                </a>
+                 <a href="doctora.html" class="menu-item" id="DoctoraBtn" >
+                    <span class="icon">🧑‍⚕️</span> Doctor
+                </a>
+                <a href="receptionistsa.html" class="menu-item" id="ReceptionistsaBtn" >
+                    <span class="icon">👩‍⚕️</span> Receptionist
+                </a>
+                <a href="queuea.html" class="menu-item" id="QueueaBtn" >
+                    <span class="icon">⏰</span> Queue
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" id="HomeBtn" class="menu-item Home">🏠 Home</a>
+                <a href="login.html" id="logoutBtn" class="menu-item logout">🚪Logout</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="breadcrumb"><h2>MediQueue</h2></div>
+                <div class="user-profile">
+                    <span class="notif">🔔</span>
+                    <!-- <span class="settings">⚙️</span> -->
+                    <div class="user-info">
+                        <strong>Dr. <span id="adminName">Loading...</span></strong>
+                        <p>Senior Administrator</p>
+                    </div>
+                    <!-- <img src="https://via.placeholder.com/40" alt="Profile" class="avatar"> -->
+                </div>
+            </header>
+
+            <section class="overview">
+                <div class="section-header">
+                    <div>
+                        <p class="subtitle">SYSTEMS OVERVIEW</p>
+                        <h1>Facility Performance</h1>
+                    </div>
+                    <div class="action-btns">
+                        <button class="btn secondary">➖ Delete Doctor</button>
+                       <a href="adddoctor.html"><button class="btn primary">➕ Add Doctor</button></a>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="card">
+                        <div class="card-head">🏥 <span class="trend"></span></div>
+                        <h2 id="doctorCount">0</h2>
+                        <p>Total Doctors</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-head">👤 <span class="trend"></span></div>
+                        <h2 id="patientCount">0</h2>
+                        <p>Total Patients</p>
+                    </div>
+                        <div class="card">
+                        <div class="card-head">📅 <span class="avatars">👥</span></div>
+                        <h2 id="todayAppointments">0</h2>
+                        <p>Today's Appointments</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="data-split">
+                <section class="table-container">
+                    <div class="table-header">
+                        <h3>Live OPD Queue</h3>
+                        <a href="queuea.html" class="view-all">View All ➜</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>TOKEN</th>
+                                <th>PATIENT NAME</th>
+                                <th>ASSIGNED DOCTOR</th>
+                                <th>DEPT.</th>
+                                <th>STATUS</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="token">#OPD-204</td>
+                                <td>Sarah Jenkins</td>
+                                <td>Dr. Michael Chen</td>
+                                <td>Cardiology</td>
+                                <td><span class="status consultation">In Consultation</span></td>
+                                <td>⋮</td>
+                            </tr>
+                            <tr>
+                                <td class="token">#OPD-205</td>
+                                <td>Robert Wilson</td>
+                                <td>Dr. Sarah Vane</td>
+                                <td>Dermatology</td>
+                                <td><span class="status waiting">Waiting</span></td>
+                                <td>⋮</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <aside class="widgets">
+                    <div class="widget staff">
+                        <h3>All Staff</h3>
+                        <div class="staff-item">
+                            <!-- <img src="https://via.placeholder.com/30" alt="Dr"> -->
+                            <div><strong>Dr. Azhar Zia</strong><p>Cardiology</p></div>
+                            <div><strong>Dr. Zainab Khan</strong><p>General Physician</p></div>
+                            <div><strong>Sara Ahmed</strong><p>Receptionist</p></div>
+                            <div><strong>Fiza Farheen</strong><p>Receptionist</p></div>
+                        </div>
+                        <!-- <button class="btn-outline">Manage Rosters</button> -->
+                    </div>
+                    <!-- <div class="widget alert">
+                        <p><strong>System Latency Detected</strong></p>
+                        <p>Queue display in Wing B is experiencing lag.</p>
+                        <button class="fab">+</button>
+                    </div> -->
+                </aside>
+            </div>
+        </main>
+    </div>
+    <script src="../java script/admin.js"></script>
+</body>
+</html>

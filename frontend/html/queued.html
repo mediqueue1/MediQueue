@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - MediQueue</title>
+    <link rel="stylesheet" href="../css/patient.css">
+    <link rel="stylesheet" href="../css/token.css">
+
+ <style>
+  /* Table Container */
+.table-container {
+  width: 130vh;
+  margin: 40px auto;
+  background: rgba(255,255,255,0.95);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: linear-gradient(to right, #42a5f5, #1976d2);
+  color: white;
+  padding: 15px;
+  font-size: 18px;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Highlight current */
+.current {
+  background: linear-gradient(to right, #66bb6a, #43a047);
+  color: white;
+  font-weight: bold;
+}
+ </style>   
+</head>
+<body>
+
+     <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand-header">
+                <h2 class="brand-title"></h2>
+                <div class="brand-subtitle">
+                    <h3>MediQueue</h3>
+    <p>OPD Management</p>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <!-- <a href="#" class="nav-item">
+                    <span class="icon">⊞</span> Dashboard
+                </a> -->
+                <a href="doctors.html" class="nav-item" id="DashboardBtn">
+                    <span class="icon">🏥</span> Dashboard
+                </a>
+                <a href="scheduled.html" class="nav-item" id="ScheduleBtn">
+                    <span class="icon">📅</span> Schedule
+                </a>
+                <!-- <a href="#" class="nav-item " id="MedicalBtn">
+                    <span class="icon">📅</span> Medical Record
+                </a> -->
+                 <a href="queued.html" class="nav-item" id="QueueBtn">
+                    <span class="icon">⏰</span> Queue
+                </a>
+                <a href="doctord.html" class="nav-item" id="DoctordBtn">
+                    <span class="icon">🧑‍⚕️</span> Doctor
+                </a> 
+            </nav>
+
+            <div class="sidebar-bottom">
+                <a href="index.html" class="nav-item" id="HomeBtn">
+                    <span class="icon">🏠</span> Home
+                </a>
+                <a href="login.html" class="nav-item" id="logoutBtn">
+                    <span class="icon">🚪</span> Logout
+                </a>
+            </div>
+        </aside>
+
+<div class="overlay">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>MediQueue</h1>
+    <div class="subtitle">Outpatient Queue & Token Management System</div>
+  </div>
+
+<div class="table-container">
+    <table id="queueTable">
+  <thead>
+    <tr>
+      <th>Queue</th>
+      <th>Token Number</th>
+      <th>Patient_id</th>
+      <th>Patient Name</th>
+      <th>Appointment_date</th>
+      <th>appointment_time</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- DATA WILL COME HERE -->
+  </tbody>
+</table>
+  </div>
+    <!-- DATA WILL COME HERE -->
+</tbody>
+ </table>
+  </div>
+
+  <script>
+async function loadQueue() {
+  try {
+    const response = await fetch("http://127.0.0.1:5000/api/queue");
+    const data = await response.json();
+
+    console.log("QUEUE DATA:", data); // DEBUG
+
+    const tbody = document.querySelector("#queueTable tbody");
+    tbody.innerHTML = "";
+
+    // ✅ Get logged-in doctor
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    console.log("USER DATA:", userData); // DEBUG
+
+    const doctorId = userData?.user?.doctor_id;
+
+    // ✅ FIXED FILTER
+    const filteredData = data.filter(item => Number(item.doctor_id) === Number(doctorId));
+
+    if (filteredData.length === 0) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="6">No patients in your queue</td>
+        </tr>
+      `;
+      return;
+    }
+
+    filteredData.sort((a, b) => {
+      if (a.status === "in_consultation") return -1;
+      if (b.status === "in_consultation") return 1;
+      return a.token_number - b.token_number;
+    });
+
+    filteredData.forEach((item, index) => {
+
+         let statusLabel = "";
+      if (item.status === "in_consultation") {
+        statusLabel = "In Consultation";
+      } else {
+        statusLabel = "Waiting";
+      }
+
+      tbody.innerHTML += `
+        <tr ${index === 0 ? 'class="current"' : ''}>
+          <td>${index + 1}</td>
+          <td>A-${item.token_number || '-'}</td>
+          <td>${item.patient_id}</td>
+          <td>${item.full_name || '-'}</td>
+          <td>${item.appointment_date || '-'}</td>
+          <td>${item.appointment_time || '-'}</td>
+          <td>${statusLabel}</td>
+        </tr>
+      `;
+    });
+
+  } catch (error) {
+    console.error("Queue load error:", error);
+  }
+}
+
+loadQueue();
+</script>
+</body>
+</html>

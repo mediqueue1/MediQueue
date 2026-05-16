@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor Dashboard</title>
+<link rel="stylesheet" href="../css/doctor.css">
+
+<style>
+
+/* FULL PAGE LAYOUT */
+body {
+    margin: 0;
+    background: #f5f7fb;
+}
+
+/* FLEX LAYOUT */
+.dashboard-layout {
+    display: flex;
+}
+
+/* MAIN CONTENT CENTER FIX */
+.main-content {
+    position: fixed;   /* 🔥 important fix */
+    left: 220px;       /* sidebar width */
+    top: 0;
+
+    width: calc(100% - 220px);
+    height: 100vh;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* CARD DESIGN */
+.schedule-card {
+    width: 420px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.schedule-card h3 {
+    margin-bottom: 20px;
+}
+
+/* TIMELINE */
+.timeline {
+    list-style: none;
+    padding: 0;
+    position: relative;
+}
+
+/* LINE */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: #e0e0e0;
+}
+
+/* ITEMS */
+.timeline li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 25px;
+}
+
+/* DOT */
+.timeline li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: #4a6cf7;
+    border-radius: 50%;
+}
+
+/* TIME */
+.time {
+    font-size: 12px;
+    color: #4a6cf7;
+    font-weight: bold;
+}
+
+/* BUTTON */
+.btn-outline-full {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #4a6cf7;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-outline-full:hover {
+    background: #4a6cf7;
+    color: #fff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="brand">
+            <h3 class="brand-name">MediQueue</h3>
+            <p class="brand-sub">OPD Management</p>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="doctors.html" class="nav-link">📊 Dashboard</a>
+            <a href="scheduled.html" class="nav-link">📅 Schedule</a>
+            <a href="queued.html" class="nav-link">⏰ Queue</a>
+            <a href="doctord.html" class="nav-link">👨‍⚕️ Doctor</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="index.html" class="nav-link">🏠 Home</a>
+            <a href="login.html" class="nav-link logout">🚪 Logout</a>
+        </div>
+    </aside>
+
+    <!-- CENTER CONTENT -->
+    <div class="main-content">
+
+        <div class="schedule-card">
+            <h3>Today's Schedule</h3>
+
+            <ul class="timeline">
+
+                <li>
+                    <span class="time">09:00 AM</span>
+                    <strong>OPD Consultation</strong>
+                    <p>09:00 AM - 01:00 PM</p>
+                </li>
+
+                <li>
+                    <span class="time">01:00 PM</span>
+                    <strong>Lunch Break</strong>
+                    <p>01:00 PM - 02:00 PM</p>
+                </li>
+
+                <li>
+                    <span class="time">02:00 PM</span>
+                    <strong>IPD Ward Rounds</strong>
+                    <p>02:00 PM - 04:30 PM</p>
+                </li>
+
+            </ul>
+
+            <button class="btn-outline-full">Modify Schedule</button>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

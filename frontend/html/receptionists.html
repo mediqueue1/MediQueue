@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediQueue - Receptionist</title>
+    <link rel="stylesheet" href="../css/receptionists.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="brand">
+                <h3>MediQueue</h3>
+                <p>OPD Management</p>
+            </div>
+            <nav class="nav-links">
+                <a href="receptionists.html" class="nav-item"><span>🏥</span> Dashboard</a>
+                <a href="queuer.html" class="nav-item"><span>⏰</span> Queue</a>
+                <a href="patientr.html" class="nav-item"><span>👦</span> Patients</a>
+                <a href="scheduler.html" class="nav-item"><span>📅</span> Schedule</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-item"><span>🏠</span>Home</a>
+                <a href="login.html" class="nav-item" id="logoutBtn"><span>🚪</span> Logout</a>
+            </div>
+        </aside>
+
+        <main class="main-wrapper">
+            <header class="top-nav">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" placeholder="Search tokens, patients...">
+                </div>
+                <div class="user-controls">
+                    <!-- <span class="icon">🔔</span> -->
+                    <!-- <span class="icon">⚙️</span> -->
+                    <div class="user-info">
+                        <strong id="receptionistName">Guest</strong>
+                        <span>CHIEF RECEPTIONIST</span>
+                    </div>
+                    <!-- <img src="https://via.placeholder.com/40" alt="Sarah Mitchell" class="avatar"> -->
+                </div>
+            </header>
+
+            <div class="page-header">
+                <div>
+                    <h1>Queue Management</h1>
+                    <p>Real-time token tracking and doctor availability portal.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-outline">🖨️ Print Token</button>
+                     <a href="register.html"><button class="btn btn-primary">➕ New Registration</button></a>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="main-column">
+                    <div class="card now-serving-card">
+                        <div class="serving-header">
+                            <span class="serving-label">NOW SERVING</span>
+                            <div class="doctor-info">
+                                <strong id="doctorName">Dr. ---</strong>
+                                    <span id="doctorSpecialization">---</span>
+                            </div>
+                        </div>
+                        <h1 class="token-number" id="tokenNumber">Token #---</h1>
+                        
+                        <div class="patient-action-box">
+                            <div class="patient-details">
+                                <div class="patient-avatar">👤</div>
+                                <div>
+                                    <strong id="patientName">---</strong>
+                                        <p id="patientInfo">---</p>
+                                </div>
+                            </div>
+                            <!-- <div class="action-buttons">
+                                <button class="icon-btn" title="Announce">📢</button>
+                                <button class="icon-btn" title="Transfer">↪️</button>
+                                <button class="btn btn-primary" id="completeVisitBtn">Complete Visit</button>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="side-column">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Doctor Availability</h3>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        <div class="doctor-list">
+                            <div class="doctor-item">
+                                <!-- <img src="https://via.placeholder.com/32" alt="Dr" class="doc-avatar"> -->
+                                <div class="doc-details">
+                                    <strong>Dr. Aris Thorne</strong>
+                                    <p>Room 402 • On Duty</p>
+                                </div>
+                                <span class="status-pill green">ACTIVE</span>
+                            </div>
+                            <div class="doctor-item">
+                                <!-- <img src="https://via.placeholder.com/32" alt="Dr" class="doc-avatar"> -->
+                                <div class="doc-details">
+                                    <strong>Dr. Sarah Vane</strong>
+                                    <p>Room 105 • Lunch</p>
+                                </div>
+                                <span class="status-pill yellow">BREAK</span>
+                            </div>
+                            <div class="doctor-item">
+                                <!-- <img src="https://via.placeholder.com/32" alt="Dr" class="doc-avatar"> -->
+                                <div class="doc-details">
+                                    <strong>Dr. Mike Ross</strong>
+                                    <p>Off Duty</p>
+                                </div>
+                                <span class="status-pill red">LEAVE</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline full-width">Manage Timings</button>
+                    </div>
+
+                    <div class="card push-card">
+                        <h3>Push Notifications</h3>
+                        <p>Send instant alerts to patient mobiles via the Clinical Sanctuary App.</p>
+                        <label>QUICK MESSAGE</label>
+                        <select class="msg-select">
+                            <option>Your turn is next. Please proceed...</option>
+                            <option>Doctor is delayed by 15 mins.</option>
+                        </select>
+                        <button class="btn btn-white full-width" id="sendAlertBtn">Send Alert</button>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="font-size: 12px; color: #888; text-transform: uppercase; margin-bottom: 15px;">Completed Appointments</h3>
+                        <div class="completed-item">
+                            <span class="check-icon">✅</span>
+                            <div>
+                                <strong>#241 • Thomas Cook</strong>
+                                <p style="font-size: 11px; color: #888;">Completed at 10:45 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="fab">+</button>
+        </main>
+    </div>
+    <script src="../java script/receptionists.js"></script>
+</body>
+</html>

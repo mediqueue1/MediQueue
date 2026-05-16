@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Patient Dashboard</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  background: #f5f7fb;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.menu {
+  padding: 10px;
+}
+
+.menu a {
+  display: block;
+  padding: 12px;
+  margin: 5px 0;
+  text-decoration: none;
+  color: #333;
+  border-radius: 6px;
+}
+
+.menu a:hover {
+  background: #e6edff;
+}
+
+.menu a.active {
+  background: #d6e4ff;
+  color: #1a73e8;
+}
+
+/* Bottom menu */
+.bottom-menu {
+  padding: 10px;
+}
+
+.bottom-menu a {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.search {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn {
+  background: #1a73e8;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Table */
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  background: #eef2ff;
+}
+
+.actions button {
+  margin-right: 5px;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view {
+  background: #d1ecf1;
+}
+
+.edit {
+  background: #fff3cd;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <div>
+    <div class="logo"><h3>MediQueue</h3>
+    <p>OPD Management</p>
+    </div>
+    <div class="menu">
+      <a href="admin.html">🏥Dashboard</a>
+      <a href="patienta.html" class="active">👦Patient</a>
+      <a href="doctora.html">🧑‍⚕️Doctor</a>
+      <a href="receptionistsa.html">👩‍⚕️Receptionist</a>
+      <a href="queuea.html">⏰Queue</a>
+    </div>
+  </div>
+
+  <div class="bottom-menu">
+    <a href="index.html">🏠Home</a>
+    <a href="login.html">🚪Logout</a>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+  <div class="topbar">
+    <input class="search" type="text" id="search" placeholder="Search patients...">
+    <!-- <button class="btn">Add New Patient</button> -->
+  </div>
+
+  <div class="card">
+    <h3>All Patients</h3>
+
+    <table id="patientTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Middle Name</th>
+          <th>Last Name</th>
+          <th>Gender</th>
+          <th>DOB</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Registered At</th>
+          <th>Username</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+<script>
+
+let patients = [];
+
+/* Render Table */
+function loadTable(data) {
+  const tbody = document.querySelector("#patientTable tbody");
+  if (!tbody) return;
+
+  tbody.innerHTML = "";
+
+  data.forEach(p => {
+    const row = `
+      <tr>
+        <td>${p.id}</td>
+        <td>${p.first}</td>
+        <td>${p.middle}</td>
+        <td>${p.last}</td>
+        <td>${p.gender}</td>
+        <td>${p.dob}</td>
+        <td>${p.phone}</td>
+        <td>${p.email}</td>
+        <td>${p.address}</td>
+        <td>${p.registered}</td>
+        <td>${p.username}</td>
+        <td class="actions">
+          <button class="view">View</button>
+          <button class="edit">Edit</button>
+        </td>
+      </tr>
+    `;
+    tbody.innerHTML += row;
+  });
+}
+
+/* Fetch API */
+async function fetchPatients() {
+  try {
+    const response = await fetch("http://127.0.0.1:5000/api/patient/all");
+    const data = await response.json();
+
+    patients = data.map(p => ({
+      id: p.patient_id,
+      first: p.first_name,
+      middle: p.middle_name,
+      last: p.last_name,
+      gender: p.gender,
+      dob: p.dob || p.date_of_birth || "",
+      phone: p.phone,
+      email: p.email,
+      address: p.address,
+     registered: p.registered_at 
+  ? p.registered_at.split(", ")[1].split(" GMT")[0]
+  : "",
+      username: p.username
+    }));
+
+    loadTable(patients);
+
+  } catch (error) {
+    console.error("Error fetching patients:", error);
+  }
+}
+
+/* DOM Ready */
+document.addEventListener("DOMContentLoaded", () => {
+  fetchPatients();
+
+  document.getElementById("search").addEventListener("keyup", function() {
+    const value = this.value.toLowerCase();
+
+    const filtered = patients.filter(p =>
+      (p.first && p.first.toLowerCase().includes(value)) ||
+      (p.last && p.last.toLowerCase().includes(value)) ||
+      (p.phone && p.phone.includes(value))
+    );
+
+    loadTable(filtered);
+  });
+});
+
+</script>
+
+</body>
+</html>

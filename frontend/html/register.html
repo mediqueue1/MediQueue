@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediQueue - Create Account</title>
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+<body
+
+style="background-image: url(/frontend/images/background.jpg);
+ background-size:cover ;
+background-repeat:no-repeat;
+background-position:center;">
+
+    <div class="main-container">
+        <div class="brand-side">
+            <div class="logo-area">
+                <span class="logo-icon"></span>
+                <span class="logo-text"><h2>Outpatient Queue and Token Management System</h2></span>
+            </div>
+            <div class="hero-text">
+                <h1>MediQueue.<br>Architectural Clarity.</h1>
+                <p>Join the next generation of outpatient management. Streamline patient flow with our advanced token and queue ecosystem.</p>
+            </div>
+            <div class="trust-badge">
+                <div class="avatars">👤👤👤</div>
+                <span>Trusted by 500+ medical facilities</span>
+            </div>
+        </div>
+
+        <div class="form-side">
+            <div class="form-container">
+                <h2>Create Account</h2>
+                <p class="subtitle">Outpatient Queue & Token Management System</p>
+
+                <form id="registrationForm">
+                    <div class="input-group">
+                        <label>FIRST NAME</label>
+                        <div class="input-wrapper">
+                            <span class="icon">👤</span>
+                            <input type="text" id="firstName" placeholder="First Name" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>MIDDLE NAME</label>
+                        <div class="input-wrapper">
+                            <span class="icon">👤</span>
+                            <input type="text" id="middleName" placeholder="Middle Name">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>LAST NAME</label>
+                        <div class="input-wrapper">
+                            <span class="icon">👤</span>
+                            <input type="text" id="lastName" placeholder="Last Name" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>EMAIL ADDRESS</label>
+                        <div class="input-wrapper">
+                            <span class="icon">✉️</span>
+                            <input type="email" id="email" placeholder="xyz@gmail.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>USERNAME</label>
+                        <div class="input-wrapper">
+                            <span class="icon">🆔</span>
+                            <input type="text" id="username" placeholder="Choose a unique username" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                                <label>DATE OF BIRTH</label>
+                                <div class="input-wrapper">
+                                    <span class="icon">📅</span>
+                                    <input type="date" id="dob">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                                <label>GENDER</label>
+                                <div class="input-wrapper">
+                                    <span class="icon">🚻</span>
+                                    <select id="gender">
+                                        <option value="">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                            <label>HOME ADDRESS</label>
+                            <div class="input-wrapper">
+                                <span class="icon">🏠</span>
+                                <input type="text" id="address" placeholder="123 Medical Lane, City, Zip Code">
+                            </div>
+                        </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <label>PHONE</label>
+                            <div class="input-wrapper">
+                                <span class="icon">📞</span>
+                                <input type="tel" id="phone" placeholder="+91-999999999" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>ROLE</label>
+                            <div class="input-wrapper">
+                                <span class="icon">🩺</span>
+                                <select id="role" required>
+                                    <option value="" disabled selected>Select Role</option>
+                                    <!-- <option value="Admin">Admin</option>
+                                    <option value="Doctor">Doctor</option> -->
+                                    <option value="Patient">Patient</option>
+                                    <!-- <option value="Receptionist">Receptionist</option> -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+<!-- 
+                    <div id="patientFields" style="display: none;">
+                        <div class="row">
+                            <div class="input-group">
+                                <label>GENDER</label>
+                                <div class="input-wrapper">
+                                    <span class="icon">🚻</span>
+                                    <select id="gender">
+                                        <option value="">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>DATE OF BIRTH</label>
+                                <div class="input-wrapper">
+                                    <span class="icon">📅</span>
+                                    <input type="date" id="dob">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>HOME ADDRESS</label>
+                            <div class="input-wrapper">
+                                <span class="icon">🏠</span>
+                                <input type="text" id="address" placeholder="123 Medical Lane, City, Zip Code">
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="input-group">
+                        <label>PASSWORD</label>
+                        <div class="input-wrapper">
+                            <span class="icon">🔒</span>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                placeholder="Enter password"
+                                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}"
+                                title="Password must contain uppercase, lowercase, number, special character and be at least 8 characters long"
+                                required
+                                >
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Register Portal Account &nbsp; ➜</button>
+                </form>
+
+                <p class="login-redirect">Already have an account? <a href="login.html">Login</a></p>
+                
+            </div>
+        </div>
+    </div>
+    <script src="../java script/register.js"></script>
+</body>
+</html>
